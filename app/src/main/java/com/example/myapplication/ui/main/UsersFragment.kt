@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.main
 
 import android.content.ClipData
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import com.example.myapplication.ItemAdapter
 import com.example.myapplication.R
 import com.example.myapplication.api.Client
 import com.example.myapplication.api.Service
+import com.example.myapplication.controller.Settings
 import com.example.myapplication.model.Item
 import com.example.myapplication.model.ItemResponse
 import kotlinx.android.synthetic.main.user_layout.*
@@ -38,8 +40,14 @@ class UsersFragment : Fragment() {
     private lateinit var item: Item
     private lateinit var swipeContainer: SwipeRefreshLayout
 
+    //initialize a shared pref object
+    val settingsMain = Settings(activity?.applicationContext)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //val settingsM = Settings(activity!!.applicationContext)
+
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
         }
@@ -73,10 +81,13 @@ class UsersFragment : Fragment() {
     }
 
     private fun loadJSON() {
+        val location = settingsMain.getSearchLocationSetting()
         try {
+            val locationUrl = "/search/users?q=location:Fullerton"
+            //val locationUrl = "/search/users?q=location:$location"
             val Client = Client()
             val apiService = Client.getClient()!!.create(Service::class.java)
-            val call: Call<ItemResponse> = apiService.getItems()
+            val call: Call<ItemResponse> = apiService.getItems(locationUrl)
             call.enqueue(object : Callback<ItemResponse?> {
                 override fun onResponse(
                     call: Call<ItemResponse?>?,

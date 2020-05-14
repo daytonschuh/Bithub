@@ -7,15 +7,16 @@
     <ImageView
         android:id="@+id/userImageHeader"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="250dp"
         android:fitsSystemWindows="true"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:contentDescription="@string/user_profile_description" />
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Username"
+        android:text="@string/username_default_label"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
@@ -35,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="GitHub Profile Link"
+        android:text="@string/github_link_default_label"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
@@ -43,6 +44,7 @@
         android:layout_below="@+id/username"/>
     <TextView
         android:id="@+id/link"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -55,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Followers"
+        android:text="@string/followers_default_label"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:textStyle="bold"

@@ -5,4 +5,10 @@
     <string name="tab_text_3">Settings</string>
     <string name="settings_location">List Github users from</string>
     <string name="settings_location_input_hint">Fullerton, Los Angeles, etc.</string>
+    <string name="save_label">Save</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="user_profile_description">User profile description</string>
+    <string name="username_default_label">Username</string>
+    <string name="github_link_default_label">Github Profile Link</string>
+    <string name="followers_default_label">Followers</string>
 </resources>

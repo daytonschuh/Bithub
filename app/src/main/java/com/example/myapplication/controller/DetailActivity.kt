@@ -67,7 +67,7 @@ class DetailActivity : AppCompatActivity() {
             .load(avatarUrl)
             .placeholder(R.drawable.app_icon)
             .into(imageView!!)
-        supportActionBar!!.title = "Details Activity"
+        supportActionBar!!.title = "User Details"
     }
 
     private fun getFollowers(user: String) {

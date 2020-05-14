@@ -22,16 +22,10 @@ class MainActivity : AppCompatActivity() {
         //initialize a shared pref object
         val settingsMain = Settings(this)
 
-
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = SectionsPagerAdapter(this, supportFragmentManager)
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
-        val fab: FloatingActionButton = findViewById(R.id.fab)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Yet to be implemented", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
     }
 }

@@ -10,8 +10,8 @@ import retrofit2.http.Url
 
 interface Service {
 
-    @GET("/search/users?q=location:Fullerton")
-    fun getItems(): Call<ItemResponse>
+    @GET
+    fun getItems(@Url url: String): Call<ItemResponse>
 
     @GET
     fun getFollowers(@Url url: String): Call<List<Item>>
