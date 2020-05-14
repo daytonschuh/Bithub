@@ -42,41 +42,9 @@ class ItemAdapter(
     }
 
 
-
-    private fun getFollowers(login: String): Int {
-        var numberFollowers: Int = 9
-        val Client = Client()
-        val apiService2 = Client.getClient()!!.create(Service::class.java)
-        val followers: Call<List<Item>> = apiService2.getFollowers()
-        followers.enqueue(object : Callback<List<Item>> {
-            override fun onResponse(
-                followers: Call<List<Item>>,
-                response: Response<List<Item>>
-            ) {
-                //val items: List<Item> = response.body()?.getItems()!!
-                d("response body","Retrieved " + response.body()?.size)
-                if(response.body()?.size != null) {
-                 numberFollowers = response.body()?.size!!
-                }
-
-                d("numberFollowers","Retrieved " + numberFollowers)
-            }
-
-            override fun onFailure(followers: Call<List<Item>?>?, t: Throwable) {
-                Toast.makeText(context, "Error Fetching Data!", Toast.LENGTH_SHORT)
-                    .show()
-                //noConnection.visibility = View.VISIBLE
-            }
-        })
-        return numberFollowers
-    }
-
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        val temp = getFollowers(items[i].getLogin())
         viewHolder.title.text = items[i].getLogin()
         viewHolder.githublink1.text = items[i].getHtmlUrl()
-        viewHolder.followers.text = temp.toString()
-        d("numF inside bind","Retrieved " + getFollowers(items[i].getLogin()))
         Picasso.get()
             .load(items[i].getAvatarUrl())
             .placeholder(R.drawable.app_icon)
@@ -91,7 +59,6 @@ class ItemAdapter(
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title)
         val githublink1: TextView = view.findViewById(R.id.githubLink1)
-        val followers: TextView = view.findViewById(R.id.followers)
         val imageView: ImageView = view.findViewById(R.id.profilePicture) as ImageView
 
         init {

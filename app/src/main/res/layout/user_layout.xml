@@ -11,14 +11,14 @@
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"/>
+        tools:context=".controller.MainActivity"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:showIn="@layout/activity_main"
-        tools:context=".MainActivity"/>
+        tools:context=".controller.MainActivity"/>
 
     <TextView
         android:id="@+id/section_label"
