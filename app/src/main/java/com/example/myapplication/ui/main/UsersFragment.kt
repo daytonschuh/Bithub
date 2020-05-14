@@ -77,15 +77,12 @@ class UsersFragment : Fragment() {
             val Client = Client()
             val apiService = Client.getClient()!!.create(Service::class.java)
             val call: Call<ItemResponse> = apiService.getItems()
-            //val followers: Call<FollowersResponse> = apiService.getFollowers("ProfAvery")
             call.enqueue(object : Callback<ItemResponse?> {
                 override fun onResponse(
                     call: Call<ItemResponse?>?,
                     response: Response<ItemResponse?>
                 ) {
                     val items: List<Item> = response.body()?.getItems()!!
-                    //val login: Item = items[0]
-                    //val followers: Int = loadFollowersJSON(items)
                     recyclerView.adapter = ItemAdapter(activity!!.applicationContext, items)
                     recyclerView.smoothScrollToPosition(0)
                     swipeContainer.isRefreshing = false
@@ -95,7 +92,6 @@ class UsersFragment : Fragment() {
 
                     Log.d("Sad face", t.toString())
                     noConnection.visibility = View.VISIBLE
-
                 }
             })
         } catch (e: java.lang.Exception) {
