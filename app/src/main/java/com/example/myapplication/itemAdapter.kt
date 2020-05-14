@@ -10,22 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.api.Service
 import com.example.myapplication.controller.DetailActivity
-import com.example.myapplication.model.FollowersResponse
-import com.example.myapplication.api.Client
-import com.example.myapplication.model.Followers
-import android.util.Log.d
-
 import com.example.myapplication.model.Item
-import com.example.myapplication.model.ItemResponse
 import com.squareup.picasso.Picasso
-import org.json.JSONArray
-import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import kotlin.properties.Delegates
 
 
 

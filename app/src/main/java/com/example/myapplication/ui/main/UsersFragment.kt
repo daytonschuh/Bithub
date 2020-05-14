@@ -52,10 +52,6 @@ class UsersFragment : Fragment() {
         val root : View = inflater.inflate(R.layout.user_layout, container, false)
 
         // THIS IS WHERE THE MAGIC HAPPENS
-        // recyclerview
-        // text view
-        // swiper
-
         noConnection = root.findViewById(R.id.noConnection)
 
         recyclerView = root.findViewById(R.id.userView)

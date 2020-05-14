@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.main;
+package com.example.myapplication.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,7 +17,7 @@ class ContributionsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel::class.java).apply {
-            setIndex(arguments?.getInt(UsersFragment.ARG_SECTION_NUMBER) ?: 1)
+            setIndex(arguments?.getInt(ContributionsFragment.ARG_SECTION_NUMBER) ?: 1)
         }
     }
 
@@ -29,7 +29,7 @@ class ContributionsFragment : Fragment() {
 
         super.onCreateView(inflater, container, savedInstanceState)
         val root: View =
-            inflater.inflate(R.layout.fragment_main, container, false)
+            inflater.inflate(R.layout.activity_login, container, false)
 
         // THIS IS WHERE THE MAGIC HAPPENS
 
@@ -51,7 +51,6 @@ class ContributionsFragment : Fragment() {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        @JvmStatic
         fun newInstance(sectionNumber: Int): ContributionsFragment {
             return ContributionsFragment().apply {
                 arguments = Bundle().apply {
